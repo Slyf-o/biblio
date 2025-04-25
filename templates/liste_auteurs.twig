@@ -1,0 +1,15 @@
+{% extends 'base.twig' %}
+
+{% block main %}
+	<h1>Liste des auteurs</h1>
+	{% for auteur in tableau_auteurs %}
+		<p>{{ auteur.nom }} <a href="detail_auteur.php?id={{ auteur.id }}">voir le détail</a></p>
+	{% endfor %}
+
+		<h3>Ajouter un auteur</h3>
+		<form method="post" action="reception_auteur.php">
+			<input type="text" name="nom_auteur" value="" placeholder="Saisir le nom de l'auteur">
+			<input type="text" name="prenom_auteur" value="" placeholder="Saisir le prénom de l'auteur">
+			<input type="submit">	
+		</form>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.twig' %}
+
+{% block main %}
+	<h1>Détail d'un editeur</h1>
+	<h2>{{ editeur.nom }}</h2>
+	<p>Adresse : {{ editeur.adresse }}</p>
+		<ul> Liste des livres de l'éditeur :
+		{% if editeur_livres is empty %}
+			<li>Aucun livre disponible pour cet éditeur</li>
+		{% else %}
+			{% for livre in editeur_livres %}
+				<li>{{ livre.titre }}</li>
+			{% endfor %}
+		{% endif %}
+		</ul>
+	<p><a href="liste_editeurs.php">Retour</a></p>
+{% endblock %}

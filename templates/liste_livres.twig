@@ -1,0 +1,18 @@
+{% extends 'base.twig' %}
+
+{% block main %}
+	<h1>Liste des livres</h1>
+	{% for livre in tableau_livres %}
+			<p>{{ livre.titre }} <a href="detail_livre.php?id={{ livre.isbn }}">voir le détail</a></p>
+	{% endfor %}
+
+			<h3>Ajouter un livre</h3>
+		<form method="post" action="reception_livre.php">
+			<input type="text" name="isbn_livre" value="" placeholder="Saisir l'isbn du livre">
+			<input type="text" name="titre_livre" value="" placeholder="Saisir le titre du livre">
+			<input type="textarea" name="resume_livre" value="" placeholder="Saisir la description du livre">
+			<input type="text" name="prix_livre" value="" placeholder="Saisir le prix du livre">
+			<input type="text" name="id_editeur_livre" value="" placeholder="Saisir l'id de l'éditeur'">
+			<input type="submit">	
+		</form>
+{% endblock %}
